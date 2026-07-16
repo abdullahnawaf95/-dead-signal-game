@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#080b0c" />
+  <title>Dead Signal: Village</title>
+  <style>
+    *{box-sizing:border-box;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050708;font-family:system-ui,-apple-system,sans-serif;color:#eee}canvas{display:block;touch-action:none}
+    #hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(14px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));right:max(18px,env(safe-area-inset-right));display:flex;justify-content:space-between;text-shadow:0 2px 5px #000}.objective{font-size:12px;letter-spacing:.16em;color:#d4c5a4}.status{text-align:right;font-weight:700}.health{color:#d7b07a}.ammo{font-size:22px}
+    #crosshair{position:absolute;left:50%;top:46%;width:18px;height:18px;transform:translate(-50%,-50%);opacity:.25}#crosshair:before,#crosshair:after{content:"";position:absolute;background:#f1dfbd}#crosshair:before{width:18px;height:1px;top:8px}#crosshair:after{height:18px;width:1px;left:8px}
+    #message{position:absolute;top:19%;left:50%;transform:translateX(-50%);padding:10px 16px;background:#080b0cbb;border-left:2px solid #ba9d68;letter-spacing:.08em;font-size:12px;opacity:0;transition:.3s;white-space:nowrap}
+    #controls{position:fixed;inset:0;pointer-events:none}.stick{pointer-events:auto;position:absolute;left:max(24px,env(safe-area-inset-left));bottom:max(22px,env(safe-area-inset-bottom));width:118px;height:118px;border:1px solid #ffffff28;border-radius:50%;background:#0a0d0e55;touch-action:none}.knob{position:absolute;width:48px;height:48px;left:35px;top:35px;border-radius:50%;background:#d9cbb944;border:1px solid #ffffff55;transform:translate(0,0)}
+    .btn{pointer-events:auto;position:absolute;border-radius:50%;border:1px solid #ffffff45;background:#15191bbb;color:#eee;font-weight:800;letter-spacing:.08em;display:grid;place-items:center;touch-action:none}.fire{right:max(25px,env(safe-area-inset-right));bottom:max(28px,env(safe-area-inset-bottom));width:78px;height:78px;border-color:#a4433d99;background:#541d1dbb}.aim{right:max(115px,calc(env(safe-area-inset-right) + 90px));bottom:max(38px,calc(env(safe-area-inset-bottom) + 10px));width:62px;height:62px}.run{left:max(152px,calc(env(safe-area-inset-left) + 128px));bottom:max(36px,env(safe-area-inset-bottom));width:54px;height:54px;font-size:10px}
+    #start{position:fixed;inset:0;background:radial-gradient(circle at 50% 35%,#26302e,#090c0d 65%);display:grid;place-items:center;text-align:center;padding:24px;z-index:5}.panel{max-width:520px}.eyebrow{color:#bba16d;letter-spacing:.3em;font-size:11px}.title{font-family:Georgia,serif;font-size:clamp(42px,10vw,72px);line-height:.9;margin:12px 0;text-shadow:0 8px 30px #000}.subtitle{color:#a7aaa7;font-size:14px;line-height:1.5}.startbtn{margin-top:25px;padding:14px 34px;border:1px solid #a88d5c;background:#191a17;color:#eee;font-weight:700;letter-spacing:.15em}.rotate{display:none;margin-top:12px;color:#d3b477;font-size:12px}@media(orientation:portrait){.rotate{display:block}#controls{display:none}}
+    .damage{position:fixed;inset:0;pointer-events:none;background:#8c1515;opacity:0;mix-blend-mode:screen;transition:opacity .2s}
+  </style>
+</head>
+<body>
+  <div id="start"><div class="panel"><div class="eyebrow">AN ORIGINAL SURVIVAL HORROR DEMO</div><div class="title">DEAD<br>SIGNAL</div><p class="subtitle">The village went silent three nights ago. Find the chapel key, survive the infected, and reach the bell tower.</p><button class="startbtn">ENTER VILLAGE</button><div class="rotate">Rotate your iPhone to landscape</div></div></div>
+  <div id="hud"><div class="top"><div><div class="objective">OBJECTIVE</div><div id="obj">Find the chapel key</div></div><div class="status"><div class="health">HEALTH <span id="hp">100</span></div><div class="ammo"><span id="ammo">12</span> / <span id="reserve">36</span></div></div></div><div id="crosshair"></div><div id="message"></div></div>
+  <div id="controls"><div class="stick" id="stick"><div class="knob"></div></div><div class="btn run" id="run">RUN</div><div class="btn aim" id="aim">AIM</div><div class="btn fire" id="fire">FIRE</div></div><div class="damage" id="damage"></div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
